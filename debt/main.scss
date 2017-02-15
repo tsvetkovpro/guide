@@ -1,0 +1,322 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
+$size-body:				16px;
+$size-button:			14px;
+
+$gutter:					20px;
+$gutter-half:			$gutter / 2;
+$gutter-half-minus:	-$gutter-half;
+
+$question-width: 		225px;
+$button-third:			($question-width - $gutter) / 3;
+$input-height:			50px;
+
+$primary-color:		#282d5c;
+$secondary-color:		lighten($primary-color, 40%);
+
+$cta-color: 			#008fd0;
+$cta-secondary-color: darken($cta-color, 10%);
+
+$dark-grey:				#454545;
+$input-border-color:	#7c81a3;
+
+$green:					#A4D600;
+
+$family-body:			Open Sans;
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: $family-body; font-size: 16px;
+	width: 960px; max-width: 100%;	
+	margin: 30px auto; padding: 30px;
+	box-sizing: border-box;
+	font-weight: 600;
+	max-width: 100%;
+	color: $primary-color;
+}
+
+
+.debtCalculator {
+	width: 100%;
+	padding: $gutter;
+	border-radius: 5px;
+	background: #f5f5f5;
+	> div {
+		font-size: 0;
+	}
+}
+
+h1 {
+	margin-top: 0;
+	font-size: 20px;
+	color: $primary-color;
+}
+h2 {
+	font-size: 18px;
+}
+
+.question {
+	margin: 0 0 $gutter;
+	&:last-of-type { 
+		margin-bottom: 0;
+	}
+	
+	// question label styles
+	> label {
+		display: block;
+		margin-bottom: $gutter-half;
+		color: $primary-color;
+		font-weight: bold;
+	}
+	// text input styles
+	> input {
+		width: 100%;
+		max-width: $question-width;
+		padding: 0 $gutter;
+		border: 1px solid $input-border-color;
+		height: $input-height;
+		line-height: $input-height;
+		font-weight: 400;
+		font-size: $size-body;
+		font-family: $family-body;
+		border-radius: 5px;
+		&.half {
+			&:first-of-type {
+				width: 48%;
+				margin-right: 2%;
+				float: left;
+			}
+			&:last-of-type {
+				width: 48%;
+				margin-left: 2%;
+				float: left;
+			}
+		}
+		&:focus {
+			outline: 0;
+			border: 1px solid $primary-color;
+			box-shadow: 0 0 10px $secondary-color;
+		}
+	}	
+}
+
+fieldset {
+	border: 0;
+	padding: ($gutter * 3) $gutter ($gutter * 2.5);
+	margin: 0 3.5% $gutter 0;
+	//width: $question-width;
+	width: 31%;
+	max-width: 100%;
+	position: relative;
+	background: #FFF;
+	display: inline-block;
+	border-radius: 5px;
+	overflow: hidden;
+	font-size: $size-body;
+	vertical-align: top;
+	&:nth-of-type(3n) {
+		margin-right: 0;
+	}
+	> legend {
+		font-size: 18px;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		top: $gutter;
+		color: $primary-color;
+	}
+	&.single-debt {
+		p {
+			margin-bottom: 0;
+			span {
+				font-size: 24px;
+				display: block;
+			}
+		}
+	}
+	// remove debt button
+	> span {
+		background: tomato;
+		width: $gutter * 2;
+		height: $gutter * 2;
+		display: inline-block;
+		text-align: center;
+		line-height: $gutter * 2;
+		//border-radius: 50%;
+		border-bottom-left-radius: 5px;
+		position: absolute;
+		right: 0;
+		top: 0;
+		cursor: pointer;
+		color: #FFF;
+		font-size: $size-body;
+		&:hover {
+			background: darken(tomato, 35%);
+		}
+		&:before {
+			display: block;
+			font-size: 12px;
+			color: $primary-color;
+			right: 50px; position: absolute;
+			white-space: nowrap;
+			font-weight: 300;
+			content: "Remove";
+		}
+		&.last {
+			top: auto;
+			bottom: 0;
+			background: $green;
+			font-size: 1.5em;
+			border-bottom-left-radius: 0;
+			border-top-left-radius: 5px;
+			&:before {
+				content: "Add another debt";
+			}
+		}
+	}
+}
+
+
+// submit button styles
+button {
+	width: 31%; height: $input-height + $gutter-half;
+	max-width: 100%;
+	line-height: $input-height + $gutter-half;
+	padding: 0;
+	background: $cta-color;
+	display: inline-block;
+	text-align: center; color: #fff;
+	font-size: $size-body; font-weight: 300;
+	font-family: $family-body;
+	margin-right: $gutter-half; 
+	//margin-bottom: $gutter-half;
+	cursor: pointer;
+	border: 0;
+	border-radius: 5px;
+	font-size: 20px;
+	&.secondary {
+		background: $cta-secondary-color;
+	}
+	&.button-error {
+		background: tomato;
+		color: #fff;
+	}
+	&.loan-CTA {
+		background: $green;
+		width: 100%;
+   	margin-right: 0;
+	}
+}
+
+
+
+
+.debtDetails {
+	background: $cta-color;
+	padding: $gutter;
+	color: #fff;
+	margin: $gutter 0;
+	border-radius: 5px;
+	font-size: 0;
+	h2 {
+		margin-top: 2px;
+		margin-bottom: 0;
+		font-size: 18px;
+		display: inline-block;
+    	width: auto;
+		padding-right: $gutter;
+    	border-right: 2px solid #fff;
+    	margin-right: $gutter;
+		span {
+			font-size: 48px;
+			display: block;
+			line-height: 1;
+    		margin-top: 5px;
+		}
+	}
+	p {
+		display: inline-block;
+    	margin-top: 0;
+    	vertical-align: top;
+		margin-bottom: 0;
+		font-size: 18px;
+		font-weight: 300;
+		line-height: 1.5;
+		width: auto;
+	}
+}
+
+.availableLoans {
+	padding: $gutter;
+	border-radius: 5px;
+	background: #f5f5f5;
+	.oceanLoans {
+		font-size: 0;
+		margin-top: $gutter;
+	}
+	h1 {
+		span {
+			display: block;
+			font-size: 24px;
+			color: $primary-color;
+		}
+	}
+	p {
+		font-size: 16px;
+		span {
+			font-weight: 300;
+			display: block;
+    		font-size: 28px;
+		}
+	}
+	
+	.single-loan {
+		@extend fieldset;
+		padding: 0 0 $gutter;
+		text-align: center;
+		h3 {
+			margin-top: 0;
+		}
+		small {
+			/*position: absolute;
+			top: 0;
+			right: 0;*/
+			background: $cta-secondary-color;
+			width: 100%;
+			text-align: center;
+			color: #fff;
+			padding: 5px 0;
+			display: block;
+			&.empty {
+				background: #FFF;
+			}
+		}
+		p {
+			padding: $gutter-half $gutter;
+			margin: 0;
+			&:nth-of-type(odd) {
+				background: #fbfbfb;
+			}
+			&:last-of-type {
+				background: #FFF;
+				padding-bottom: 0;
+			}
+		}
+	}
+}
+
+
+.availableLoans .Debug {
+	padding: $gutter;
+	color: #aaa;
+	background: #f5f5f5;
+	margin-top: $gutter;
+	font-size: 14px;
+	h3 {
+		margin-top: 0;
+		font-size: 18px;
+	}
+}

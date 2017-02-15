@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lorem ipsum dolor sit.</title>
+		<meta charset="utf-8">
+		<link type='text/css' rel='stylesheet' href='main.css'/>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.3/knockout.validation.min.js"></script>
+	</head>
+	<body>
+		 <form name="debtCalculator" class="debtCalculator" data-bind="submit: calculateDebt" id="knockoutForm">
+	<h1>Lorem ipsum dolor sit.</h1>
+	<div data-bind="foreach: debts">
+		<fieldset class="single-debt">
+			<legend>Продукт №. <span data-bind="text: ($index() + 1)"></span></legend>
+
+			<span data-bind="visible: $index() != 0 && $index() != 1 && $index() === ($parent.debts().length - 1), click: $root.removeDebt">X</span>
+
+
+			<!-- credit amount -->
+			<div class="question">
+				<label for="debtAmount">Сумма вклада:</label>
+				<input type="text" id="debtAmount" name="debtAmount" data-bind="textInput: formattedAmount"/>
+			</div>
+
+			<!-- credit interest -->
+			<!-- <div class="question">
+				<label for="interest">APR: <small>(%)</small></label>
+				<input type="text" id="interest" name="interest" data-bind="textInput: interest"/>
+			</div> -->
+
+			<!-- term -->
+			<div class="question">
+				<label for="term">Период вклада: <small>(месяцы)</small></label>
+				<input type="text" id="term" name="term" data-bind="textInput: term"/>
+			</div>
+			<div data-bind="visible: $parent.showResults">
+				<p data-bind="visible: monthlyRepayments()">Monthly payments: <span data-bind="text: formatCurrency(monthlyRepayments())"></span></p>
+				<p data-bind="visible: totalRepaid()">Total repaid: <span data-bind="text: formatCurrency(totalRepaid())"></span></p>
+			</div>
+			<span data-bind="visible: $index() === ($parent.debts().length - 1), click: $root.addDebt" class="last">+</span>
+		</fieldset>
+	</div>
+
+
+	<!--<button data-bind="click: addDebt" class="secondary">Add additional debt</button>-->
+
+	<!-- Submit Button -->
+	<button type="submit" id="formSubmit">Расчитать доход</button>
+</form>
+
+<div class="debtResults" data-bind="visible: showResults">
+	<div class="debtDetails">
+		<h2>Всего заработаете: <span data-bind="text: formatCurrency(totalDebtAmount())"></span></h2>
+		<p>В среднем за месяц: <strong data-bind="text: averageInterest() + '%'"></strong><br/>
+		Ваша прямая выгода: <strong data-bind="text: formatCurrency(totalMonthlyPayments())"></strong><br/>
+	<!--Monthly interest: <span data-bind="text: totalDebtAmount"></span><br/>
+	Total payment: <span data-bind="text: totalDebtAmount"></span><br/>
+	Of which interest: <span data-bind="text: totalDebtAmount"></span>-->
+
+			Ваши преимущества <strong data-bind="text: formatMonths(loanTerm())"></strong></p>
+	</div>
+
+	<div class="availableLoans" data-bind="visible: showLoanOptions">
+		<h1 data-bind="visible: totalDebtAmount() <= 5000"><span>You may be elligible</span> for an Ocean Personal Loan to consolidate your debts:</h1>
+		<h1 data-bind="visible: totalDebtAmount() >= 10000 && totalDebtAmount() <= 250000"><span>You may be elligible</span> for an Ocean Secured Loan to consolidate your debts:</h1>
+
+		<div class="oceanLoans" data-bind="foreach: loansAvailble, visible: totalDebtAmount() <= 5000 || totalDebtAmount() >= 10000 && totalDebtAmount() <= 250000">
+			<div class="single-loan">
+
+				<!--<h3>Loan option <span data-bind="text: ($index() + 1)"></span></h3>-->
+				<small data-bind="visible: $index() === ($parent.loansAvailble().length - 1)">Quickest payoff</small>
+				<small data-bind="visible: $index() === 0">Cheapest monthly</small>
+				<small data-bind="visible: $index() > 0 && $index() < ($parent.loansAvailble().length - 1)" class="empty">&nbsp;</small>
+
+				<p>Loan amount: <span data-bind="text: formatCurrency(loanAmount())"></span></p>
+				<p>Loan APR: <span data-bind="text: apr() + '%'"></span></p>
+				<p>Loan term: <span data-bind="text: formatMonths(loanTerm())"></span></p>
+				<p>Monthly payments: <span data-bind="text: formatCurrency(monthlyPayments())"></span></p>
+				<p><button class="loan-CTA">Get this loan</button></p>
+			</fieldset>
+		</div
+		<small>Loans are subject to status: The APR you are offered will depend on your individual circumstances.</small>\
+	</div>
+
+	<div class="Debug">
+		<h3>Debugging:</h3>
+		<pre data-bind="text: ko.toJSON($root, null, 2)"></pre>
+	</div>
+
+</div>
+<script src="main.js"></script>
+	</body>
+</html>

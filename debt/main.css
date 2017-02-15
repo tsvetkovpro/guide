@@ -1,0 +1,283 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Open Sans;
+  font-size: 16px;
+  width: 960px;
+  max-width: 100%;
+  margin: 30px auto;
+  padding: 30px;
+  box-sizing: border-box;
+  font-weight: 600;
+  max-width: 100%;
+  color: #282d5c;
+}
+
+.debtCalculator {
+  width: 100%;
+  padding: 20px;
+  border-radius: 5px;
+  background: #f5f5f5;
+}
+.debtCalculator > div {
+  font-size: 0;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #282d5c;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+.question {
+  margin: 0 0 20px;
+}
+.question:last-of-type {
+  margin-bottom: 0;
+}
+.question > label {
+  display: block;
+  margin-bottom: 10px;
+  color: #282d5c;
+  font-weight: bold;
+}
+.question > input {
+  width: 100%;
+  max-width: 225px;
+  padding: 0 20px;
+  border: 1px solid #7c81a3;
+  height: 50px;
+  line-height: 50px;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: Open Sans;
+  border-radius: 5px;
+}
+.question > input.half:first-of-type {
+  width: 48%;
+  margin-right: 2%;
+  float: left;
+}
+.question > input.half:last-of-type {
+  width: 48%;
+  margin-left: 2%;
+  float: left;
+}
+.question > input:focus {
+  outline: 0;
+  border: 1px solid #282d5c;
+  box-shadow: 0 0 10px #868cca;
+}
+
+fieldset, .availableLoans .single-loan {
+  border: 0;
+  padding: 60px 20px 50px;
+  margin: 0 3.5% 20px 0;
+  width: 31%;
+  max-width: 100%;
+  position: relative;
+  background: #FFF;
+  display: inline-block;
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 16px;
+  vertical-align: top;
+}
+fieldset:nth-of-type(3n), .availableLoans .single-loan:nth-of-type(3n) {
+  margin-right: 0;
+}
+fieldset > legend, .availableLoans .single-loan > legend {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 20px;
+  color: #282d5c;
+}
+fieldset.single-debt p, .availableLoans .single-debt.single-loan p {
+  margin-bottom: 0;
+}
+fieldset.single-debt p span, .availableLoans .single-debt.single-loan p span {
+  font-size: 24px;
+  display: block;
+}
+fieldset > span, .availableLoans .single-loan > span {
+  background: tomato;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+  border-bottom-left-radius: 5px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  color: #FFF;
+  font-size: 16px;
+}
+fieldset > span:hover, .availableLoans .single-loan > span:hover {
+  background: #941600;
+}
+fieldset > span:before, .availableLoans .single-loan > span:before {
+  display: block;
+  font-size: 12px;
+  color: #282d5c;
+  right: 50px;
+  position: absolute;
+  white-space: nowrap;
+  font-weight: 300;
+  content: "Удалить";
+}
+fieldset > span.last, .availableLoans .single-loan > span.last {
+  top: auto;
+  bottom: 0;
+  background: #A4D600;
+  font-size: 1.5em;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 5px;
+}
+fieldset > span.last:before, .availableLoans .single-loan > span.last:before {
+  content: "Добавить ещё один";
+}
+
+button {
+  width: 31%;
+  height: 60px;
+  max-width: 100%;
+  line-height: 60px;
+  padding: 0;
+  background: #008fd0;
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  font-family: Open Sans;
+  margin-right: 10px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 5px;
+  font-size: 20px;
+}
+button.secondary {
+  background: #006c9d;
+}
+button.button-error {
+  background: tomato;
+  color: #fff;
+}
+button.loan-CTA {
+  background: #A4D600;
+  width: 100%;
+  margin-right: 0;
+}
+
+.debtDetails {
+  background: #008fd0;
+  padding: 20px;
+  color: #fff;
+  margin: 20px 0;
+  border-radius: 5px;
+  font-size: 0;
+}
+.debtDetails h2 {
+  margin-top: 2px;
+  margin-bottom: 0;
+  font-size: 18px;
+  display: inline-block;
+  width: auto;
+  padding-right: 20px;
+  border-right: 2px solid #fff;
+  margin-right: 20px;
+}
+.debtDetails h2 span {
+  font-size: 48px;
+  display: block;
+  line-height: 1;
+  margin-top: 5px;
+}
+.debtDetails p {
+  display: inline-block;
+  margin-top: 0;
+  vertical-align: top;
+  margin-bottom: 0;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.5;
+  width: auto;
+}
+
+.availableLoans {
+  padding: 20px;
+  border-radius: 5px;
+  background: #f5f5f5;
+}
+.availableLoans .oceanLoans {
+  font-size: 0;
+  margin-top: 20px;
+}
+.availableLoans h1 span {
+  display: block;
+  font-size: 24px;
+  color: #282d5c;
+}
+.availableLoans p {
+  font-size: 16px;
+}
+.availableLoans p span {
+  font-weight: 300;
+  display: block;
+  font-size: 28px;
+}
+.availableLoans .single-loan {
+  padding: 0 0 20px;
+  text-align: center;
+}
+.availableLoans .single-loan h3 {
+  margin-top: 0;
+}
+.availableLoans .single-loan small {
+  /*position: absolute;
+  top: 0;
+  right: 0;*/
+  background: #006c9d;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  padding: 5px 0;
+  display: block;
+}
+.availableLoans .single-loan small.empty {
+  background: #FFF;
+}
+.availableLoans .single-loan p {
+  padding: 10px 20px;
+  margin: 0;
+}
+.availableLoans .single-loan p:nth-of-type(odd) {
+  background: #fbfbfb;
+}
+.availableLoans .single-loan p:last-of-type {
+  background: #FFF;
+  padding-bottom: 0;
+}
+
+.availableLoans .Debug {
+  padding: 20px;
+  color: #aaa;
+  background: #f5f5f5;
+  margin-top: 20px;
+  font-size: 14px;
+}
+.availableLoans .Debug h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
