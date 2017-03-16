@@ -30,7 +30,7 @@ rangeSlider();
       const price    = priceInput.value;
       const cost     = price * 2;
       console.log(cost);
-      total.innerText = '₽' + cost.toFixed(2);
+      total.innerText = `₽ всего за срок вклада - ${cost}`;
     }
 
     function updateQuantityLabel() {
