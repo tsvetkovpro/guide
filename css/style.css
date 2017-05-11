@@ -519,6 +519,11 @@ body {
   background-color: #fff;
   padding: 7em 0;
 }
+
+#fh5co-features .fh5co {
+  padding: 5em 0;
+}
+
 @media screen and (max-width: 768px) {
   #fh5co-features,
   #fh5co-features-2,
